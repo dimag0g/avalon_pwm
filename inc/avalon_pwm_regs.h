@@ -28,9 +28,9 @@
 
 // CONTROL register bits
 
-#define AVALON_PWM_OUT_ENA  
-#define AVALON_PWM_CNT_ENA  
-#define AVALON_PWM_IRQL_ENA  
-#define AVALON_PWM_IRQH_ENA  
+#define AVALON_PWM_OUT_ENA   1
+#define AVALON_PWM_CNT_ENA   2
+#define AVALON_PWM_IRQL_ENA  4
+#define AVALON_PWM_IRQH_ENA  8
 
 #endif // __AVALON_PWM_REGS_H__

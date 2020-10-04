@@ -106,3 +106,18 @@ values are being updated, two strategies are possible:
 channels in a way that preserves dead time: if you need to reduce the duty cycle,
 update it on positive polarity channel first, and do the other way around if you
 need to increase it.
+
+The control register contails 4 bits which affect all PWM channels simultaneously:
+
+- OUT_ENA (bit 0) - "1" (default) enables the output signal on all PWM pins.
+"0" sets all PWM pins to its polarity level. This is the equivalent of setting
+all duty cycles to 0.
+
+- CNT_ENA (bit 1) - "1" (default) enables the PWM cycle counter. "0" stops the
+PWM cycle counter and holds the last state of PWM pins.
+
+- IRQL_ENA (bit 2) - "1" enables an IRQ on PWM cycle counter reaching 0.
+"0" (default) disables the interrupt.
+
+- IRQH_ENA (bit 3) -"1" enables an IRQ on PWM cycle counter reaching the max value.
+"0" (default) disables the interrupt.

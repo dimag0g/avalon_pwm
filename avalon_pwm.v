@@ -153,7 +153,7 @@ always @(posedge clk or negedge reset_n)
 begin
 	for(i = 0; i < PWM_OUTPUTS_COUNT; i = i + 1) begin
 		if (reset_n == 0) pwm_out[i] <= 0;
-		else if (ctrl_reg[0] == 0) pwm_out[i] <= 0;
+		else if (ctrl_reg[0] == 0) pwm_out[i] <= pol_reg[i];
 		else if (pwm_val < duty_val[i]) pwm_out[i] <= !pol_reg[i];
 		else if (pwm_val > duty_val[i]) pwm_out[i] <= pol_reg[i]; // Save output for 1 cycle for a constant level at 0% and 100% duty cycle
 		else if (CONSTANT_MAX == 0) pwm_out[i] <= pol_reg[i];     // Or set the output to zero if constant output not required
